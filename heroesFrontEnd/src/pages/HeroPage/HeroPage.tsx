@@ -4,8 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllSourceHeroes } from "../../services/heroSourceServices";
 
 const HeroPage = () => {
-  const [start, setstart] = useState<number>(1);
-  const [end, setEnd] = useState<number>(11);
+  const [start, setstart] = useState<number>(0);
+  const [end, setEnd] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
 
   const { isFetching, isPending, isError, data, error } = useQuery({

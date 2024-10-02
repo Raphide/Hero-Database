@@ -1,6 +1,7 @@
 import React from "react";
 import { HeroSourceResponse } from "../../services/heroSourceServices";
 import styles from "./HeroCard.module.scss";
+import { Link } from "react-router-dom";
 
 interface HeroCardProps {
   hero: HeroSourceResponse;
@@ -21,6 +22,7 @@ if(level < 35){
 
   return (
     <div>
+      <Link to={`/save/${hero.id}`}><button>Save Hero</button></Link>
       <h2>{hero.name}</h2>
       <span className={styles.contents}>
         <img src={hero.images.sm} />
