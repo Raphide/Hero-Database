@@ -12,13 +12,13 @@ const SaveHeroPage = () => {
     const formSubmit = (heroData: HeroFormData) => {
         saveHero(heroData).then(()=> navigate("/")).catch((e)=> console.log(e));
     }
-    const {isPending, isError, data, error} = useQuery({
+    const {isPending, isFetching, isError, data, error} = useQuery({
         queryKey: ["heroes"],
         queryFn: () => getSourceHeroById(id),
     });
 
     
-    if (isPending) {
+    if (isPending || isFetching) {
         return <span>Loading...</span>;
       }
     

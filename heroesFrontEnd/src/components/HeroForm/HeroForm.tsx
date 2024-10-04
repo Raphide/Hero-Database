@@ -13,8 +13,6 @@ const HeroForm = ({ hero, onSubmit,}: HeroFormProps) => {
   const {
     reset,
     register,
-    watch,
-    setValue,
     formState: { errors, isSubmitSuccessful },
     handleSubmit,
   } = useForm<HeroFormData>({

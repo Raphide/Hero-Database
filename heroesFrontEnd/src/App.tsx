@@ -7,6 +7,7 @@ import {
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HeroPage from "./pages/HeroPage/HeroPage";
 import SaveHeroPage from "./pages/SaveHeroPage/SaveHeroPage";
+import HeroCollectionPage from "./pages/HeroCollectionPage/HeroCollectionPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function App() {
        <Routes>
         <Route path="/" element={<HeroPage/>} />
         <Route path="/save/:id" element={<SaveHeroPage/>} />
+        <Route path="/collection" element={<HeroCollectionPage/>}/>
        </Routes>
         </BrowserRouter>
       </QueryClientProvider>

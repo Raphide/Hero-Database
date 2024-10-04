@@ -2,4 +2,6 @@ body{
   background-color: rgb(33, 58, 83);
   color: rgb(85, 214, 62);
   font-family: monospace;
+  /* background-image: url("./assets/gray-fine-metal-textured-background.jpg");
+  background-size: contain; */
 }

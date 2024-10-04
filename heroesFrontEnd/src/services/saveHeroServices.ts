@@ -4,6 +4,7 @@ import { HeroFormData } from "../components/HeroForm/schema";
 const baseURL = import.meta.env.VITE_APP_API_BASE_URL;
 
 export interface SavedHeroResponse {
+  [x: string]: any;
   id: number;
   name: string;
   combat: number;
@@ -22,3 +23,11 @@ export const saveHero = async (data: HeroFormData) => {
   }
   return response.data;
 };
+
+export const getAllSavedHeroes = async () => {
+    const response = await axios.get<SavedHeroResponse[]>(baseURL + "/heroes");
+    if(response.status !== 200){
+        throw new Error("failed to fetch saved heroes");
+    }
+    return response.data;
+}

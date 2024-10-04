@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HeroCard from "../../components/HeroCard/HeroCard";
 import { useQuery } from "@tanstack/react-query";
 import { getAllSourceHeroes } from "../../services/heroSourceServices";
+import styles from "./HeroPage.module.scss"
 
 const HeroPage = () => {
   const [start, setstart] = useState<number>(0);
@@ -48,9 +49,11 @@ const HeroPage = () => {
       <button onClick={handleNext} disabled={end >= dataLength}>
         next
       </button>
+      <div className={styles.cards}>
       {offsetData?.map((hero) => (
-        <HeroCard key={hero.id} hero={hero} />
+        <HeroCard key={hero.id} hero={hero} heroType="SOURCE" />
       ))}
+      </div>
     </div>
   );
 };
