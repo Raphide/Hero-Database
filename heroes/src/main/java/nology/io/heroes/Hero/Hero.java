@@ -1,12 +1,17 @@
 package nology.io.heroes.Hero;
 
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import nology.io.heroes.Images.Images;
+import nology.io.heroes.PowerStats.Powerstats;
 
 @Entity
 @Table(name= "saved_heroes")
@@ -23,26 +28,14 @@ public class Hero {
     @Column
     private String name;
 
-    @Column
-    private int combat;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "powerstats_id")
+    private Powerstats powerstats;
 
-    @Column
-    private int durability;
-
-    @Column
-    private int intelligence;
-
-    @Column
-    private int power;
-
-    @Column
-    private int speed;
-
-    @Column
-    private int strength;
-
-    @Column
-    private String imageSmall;
+   
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "images_id")
+    private Images images;
 
     public Long getId() {
         return id;
@@ -60,66 +53,20 @@ public class Hero {
         this.name = name;
     }
 
-    public int getCombat() {
-        return combat;
+    public Powerstats getPowerstats() {
+        return powerstats;
     }
 
-    public void setCombat(int combat) {
-        this.combat = combat;
+    public void setPowerstats(Powerstats powerstats) {
+        this.powerstats = powerstats;
     }
 
-    public int getDurability() {
-        return durability;
+    public Images getImages() {
+        return images;
     }
 
-    public void setDurability(int durability) {
-        this.durability = durability;
+    public void setImages(Images images) {
+        this.images = images;
     }
-
-    public int getIntelligence() {
-        return intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
-
-    public int getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public String getImageSmall() {
-        return imageSmall;
-    }
-
-    public void setImageSmall(String imageSmall) {
-        this.imageSmall = imageSmall;
-    }
-
-    
-
-
-
-
 
 }

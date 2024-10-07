@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.validation.Valid;
+import nology.io.heroes.Images.Images;
+import nology.io.heroes.PowerStats.Powerstats;
 
 @Service
 public class HeroService {
@@ -14,14 +16,18 @@ public class HeroService {
 
     public Hero createHero(@Valid CreateHeroDTO data) {
         Hero newHero = new Hero();
+        Powerstats newStats = new Powerstats();
+        Images newImg = new Images();
         newHero.setName(data.getName());
-        newHero.setCombat(data.getCombat());
-        newHero.setDurability(data.getDurability());
-        newHero.setIntelligence(data.getIntelligence());
-        newHero.setPower(data.getPower());
-        newHero.setSpeed(data.getSpeed());
-        newHero.setStrength(data.getStrength());
-        newHero.setImageSmall(data.getImageSmall());
+        newStats.setCombat(data.getCombat());
+        newStats.setDurability(data.getDurability());
+        newStats.setIntelligence(data.getIntelligence());
+        newStats.setPower(data.getPower());
+        newStats.setSpeed(data.getSpeed());
+        newStats.setStrength(data.getStrength());
+        newHero.setPowerstats(newStats);
+        newImg.setSm(data.getSm());
+        newHero.setImages(newImg);
         return this.repo.save(newHero);
     }
 

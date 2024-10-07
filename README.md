@@ -32,13 +32,14 @@ npm install
 ## Features
 
 - Ability to save Heroes from the source API into a collection in my database
+- Search for heroes by name
 
 ---
 
 ## Known issues
 
-- Still a work in progress so only the option to save has been implemented
-- Source database and my own database have different structures. Mine is too simple at the moment so I need to add more tables to more closely match the source.
+- Front end still needs work
+  - May add modals to bring up hero info
 - Tests not yet implemented
 
 ---
@@ -50,6 +51,14 @@ npm install
 ---
 
 ## Change logs
+
+### 06/10/2024 - Search feature implemented
+
+- Search feature has been implemented
+
+### 06/10/2024 - Database structure redone
+
+- Have modified my original basic one table structure for the database so it more closely resembles the source database.
 
 ### 04/10/2024 - First Changelog
 
@@ -64,7 +73,7 @@ npm install
 
   - The issue being that currently my database has a different structure to the source database.
   - Typescript's static typing made this more of a challenge.
-  - While I have fixed this issue on the front end I would like to modify my database/back end to more closely match the source.
+  - While I have fixed this issue on the front end I would like to modify my database/back end to more closely match the source. (This has been done now!)
 
 - Implementing pagination on an API with no pageable results and IDs that do not match index (solved by filtering the data according to an offset of the index).
 

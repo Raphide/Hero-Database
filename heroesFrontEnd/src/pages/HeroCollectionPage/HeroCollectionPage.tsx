@@ -9,7 +9,7 @@ const HeroCollectionPage = () => {
   const [end, setEnd] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
 
-  const { isFetching, isPending, isError, data, error } = useQuery({
+  const { isSuccess, isFetching, isPending, isError, data, error } = useQuery({
     queryKey: ["heroes"],
     queryFn: getAllSavedHeroes,
   });
@@ -51,7 +51,7 @@ const HeroCollectionPage = () => {
       <button onClick={handleNext} disabled={end >= dataLength}>
         next
       </button>
-      <div className={styles.cards}>
+     <div className={styles.cards}>
         {offsetData?.map((hero) => (
           <HeroCard key={hero.id} hero={hero} heroType={"SAVED"} />
         ))}

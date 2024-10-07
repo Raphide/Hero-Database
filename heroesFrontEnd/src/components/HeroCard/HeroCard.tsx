@@ -12,7 +12,7 @@ interface HeroCardProps {
 }
 
 const HeroCard = ({ hero, heroType }: HeroCardProps) => {
-  const status = heroType === "SOURCE" ? hero.powerstats : hero;
+  // const status = heroType === "SOURCE" ? hero.powerstats : hero;
 
   const statColor = (level: number) => {
     if (level < 35) {
@@ -36,23 +36,23 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
         <div className={styles.topsides}>{heroType === "SAVED" && <button>Edit</button>}</div>
       </div>
       <span className={styles.contents}>
-        <img src={hero.images?.sm || status.imageSmall} />
+        <img src={hero.images.sm} />
         <div className={styles.stats}>
-          <p>Combat: {status.combat}</p>
-          <p>Durability: {status.durability}</p>
-          <p>Intelligence: {status.intelligence}</p>
-          <p>Power: {status.power}</p>
-          <p>Speed: {status.speed}</p>
-          <p>Strength: {status.strength}</p>
+          <p>Combat: {hero.powerstats.combat}</p>
+          <p>Durability: {hero.powerstats.durability}</p>
+          <p>Intelligence: {hero.powerstats.intelligence}</p>
+          <p>Power: {hero.powerstats.power}</p>
+          <p>Speed: {hero.powerstats.speed}</p>
+          <p>Strength: {hero.powerstats.strength}</p>
         </div>
         <div className={styles.stats}>
           <div className={styles.statbar}>
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.combat),
+                backgroundColor: statColor(hero.powerstats.combat),
                 height: "100%",
-                width: `${status.combat}%`,
+                width: `${hero.powerstats.combat}%`,
               }}
             ></div>
           </div>
@@ -60,9 +60,9 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.durability),
+                backgroundColor: statColor(hero.powerstats.durability),
                 height: "100%",
-                width: `${status.durability}%`,
+                width: `${hero.powerstats.durability}%`,
               }}
             ></div>
           </div>
@@ -70,9 +70,9 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.intelligence),
+                backgroundColor: statColor(hero.powerstats.intelligence),
                 height: "100%",
-                width: `${status.intelligence}%`,
+                width: `${hero.powerstats.intelligence}%`,
               }}
             ></div>
           </div>
@@ -80,9 +80,9 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.power),
+                backgroundColor: statColor(hero.powerstats.power),
                 height: "100%",
-                width: `${status.power}%`,
+                width: `${hero.powerstats.power}%`,
               }}
             ></div>
           </div>
@@ -90,9 +90,9 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.speed),
+                backgroundColor: statColor(hero.powerstats.speed),
                 height: "100%",
-                width: `${status.speed}%`,
+                width: `${hero.powerstats.speed}%`,
               }}
             ></div>
           </div>
@@ -100,9 +100,9 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
             <div
               className={styles.bar}
               style={{
-                backgroundColor: statColor(status.strength),
+                backgroundColor: statColor(hero.powerstats.strength),
                 height: "100%",
-                width: `${status.strength}%`,
+                width: `${hero.powerstats.strength}%`,
               }}
             ></div>
           </div>

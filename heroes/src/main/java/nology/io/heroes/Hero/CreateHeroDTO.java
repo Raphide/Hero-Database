@@ -2,6 +2,7 @@ package nology.io.heroes.Hero;
 
 import org.hibernate.validator.constraints.Length;
 
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -29,8 +30,14 @@ public class CreateHeroDTO {
     @NotNull
     private int strength;
 
+    @Nullable
+    private String xs;
     @NotBlank
-    private String imageSmall;
+    private String sm;
+    @Nullable
+    private String md;
+@Nullable
+    private String lg;
 
     public String getName() {
         return name;
@@ -88,13 +95,39 @@ public class CreateHeroDTO {
         this.strength = strength;
     }
 
-    public String getImageSmall() {
-        return imageSmall;
+    public String getXs() {
+        return xs;
     }
 
-    public void setImageSmall(String imageSmall) {
-        this.imageSmall = imageSmall;
+    public void setXs(String xs) {
+        this.xs = xs;
     }
+
+    public String getSm() {
+        return sm;
+    }
+
+    public void setSm(String sm) {
+        this.sm = sm;
+    }
+
+    public String getMd() {
+        return md;
+    }
+
+    public void setMd(String md) {
+        this.md = md;
+    }
+
+    public String getLg() {
+        return lg;
+    }
+
+    public void setLg(String lg) {
+        this.lg = lg;
+    }
+
+  
 
     
 

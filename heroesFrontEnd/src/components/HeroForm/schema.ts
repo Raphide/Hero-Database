@@ -8,7 +8,7 @@ export const schema = z.object({
     power: z.number().max(100),
     speed: z.number().max(100),
     strength: z.number().max(100),
-    imageSmall: z.string()
+    sm: z.string()
 })
 
 export type HeroFormData = z.infer<typeof schema>;

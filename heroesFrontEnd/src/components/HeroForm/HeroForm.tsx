@@ -61,8 +61,8 @@ const HeroForm = ({ hero, onSubmit,}: HeroFormProps) => {
         </div>
         <div>
           <label htmlFor="imageSmall">Image</label>
-<input id="imageSmall" type="text" defaultValue={hero.images.sm} {...register("imageSmall")} />
-{errors?.imageSmall && <small>{errors.imageSmall.message}</small>}
+<input id="imageSmall" type="text" defaultValue={hero.images.sm} {...register("sm")} />
+{errors?.sm && <small>{errors.sm.message}</small>}
         </div>
         <button>Submit</button>
       </form>
