@@ -52,7 +52,13 @@ npm install
 
 ## Change logs
 
-### 06/10/2024 - Search feature implemented
+### 09/10/2024 - Search feature implemented
+
+- Delete and Edit feature implemented
+- Improved styling on form components and background
+- Changed form input types to be range instead of number
+
+### 08/10/2024 - Search feature implemented
 
 - Search feature has been implemented
 

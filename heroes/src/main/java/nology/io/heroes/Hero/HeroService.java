@@ -1,6 +1,8 @@
 package nology.io.heroes.Hero;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,37 @@ public class HeroService {
 
     public List<Hero> findAll(){
         return this.repo.findAll();
+    }
+
+    public Optional<Hero> findById(Long id) {
+      return this.repo.findById(id);
+    }
+
+    public boolean deleteById(Long id) {
+       Optional<Hero> result = this.findById(id);
+       if(result.isEmpty()){
+        return false;
+       }
+       this.repo.delete(result.get());
+       return true;
+    }
+
+    public Optional<Hero> updateById(Long id, UpdateHeroDTO data) throws Exception{
+    Optional<Hero> result = this.findById(id);
+    if(result.isEmpty()) {
+        throw new Exception("Could not find Hero with id " + id);
+    }
+    Hero foundHero = result.get();
+    Powerstats newStats = new Powerstats();
+    newStats.setCombat(data.getCombat());
+        newStats.setDurability(data.getDurability());
+        newStats.setIntelligence(data.getIntelligence());
+        newStats.setPower(data.getPower());
+        newStats.setSpeed(data.getSpeed());
+        newStats.setStrength(data.getStrength());
+        foundHero.setPowerstats(newStats);
+        Hero updatedHero = this.repo.save(foundHero);
+        return Optional.of(updatedHero);
     }
 
     

@@ -27,9 +27,9 @@ const SaveHeroPage = () => {
       }
 
   return (
-    <div>
+    
         <HeroForm onSubmit={formSubmit} hero={data} />
-    </div>
+   
   )
 }
 

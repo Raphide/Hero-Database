@@ -2,7 +2,11 @@ import React from "react";
 import { HeroSourceResponse } from "../../services/heroSourceServices";
 import styles from "./HeroCard.module.scss";
 import { Link } from "react-router-dom";
-import { SavedHeroResponse } from "../../services/saveHeroServices";
+import {
+  deleteSavedHeroById,
+  SavedHeroResponse,
+} from "../../services/saveHeroServices";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 type heroType = "SOURCE" | "SAVED";
 
@@ -12,7 +16,20 @@ interface HeroCardProps {
 }
 
 const HeroCard = ({ hero, heroType }: HeroCardProps) => {
-  // const status = heroType === "SOURCE" ? hero.powerstats : hero;
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: deleteSavedHeroById,
+    onSuccess: async () => {
+      console.log("this has worked");
+    },
+    onError: async () => {
+      console.log("[EXTREMELY LOUD INCORRECT BUZZER SOUND]");
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({ queryKey: ["heroes"] });
+    },
+  });
 
   const statColor = (level: number) => {
     if (level < 35) {
@@ -28,12 +45,26 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
     <div className={styles.card}>
       <div className={styles.top}>
         <div className={styles.topsides}>
-          <Link to={`/save/${hero.id}`}>
-            <button>Save Hero</button>
-          </Link>
+          {heroType === "SOURCE" ? (
+            <Link to={`/save/${hero.id}`}>
+              <button>Save Hero</button>
+            </Link>
+          ) : (
+            <Link to={`/collection/update/${hero.id}`}><button>Edit</button></Link>
+          )}
         </div>
         <h2>{hero.name}</h2>
-        <div className={styles.topsides}>{heroType === "SAVED" && <button>Edit</button>}</div>
+        <div className={styles.topsides}>
+          {heroType === "SAVED" && (
+            <button
+              onClick={() => {
+                mutation.mutate(hero.id);
+              }}
+            >
+              Delete
+            </button>
+          )}
+        </div>
       </div>
       <span className={styles.contents}>
         <img src={hero.images.sm} />

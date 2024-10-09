@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { getAllSavedHeroes } from "../../services/saveHeroServices";
+import { deleteSavedHeroById, getAllSavedHeroes } from "../../services/saveHeroServices";
 import HeroCard from "../../components/HeroCard/HeroCard";
 import styles from "./HeroCollection.module.scss";
 
@@ -9,7 +9,7 @@ const HeroCollectionPage = () => {
   const [end, setEnd] = useState<number>(10);
   const [page, setPage] = useState<number>(1);
 
-  const { isSuccess, isFetching, isPending, isError, data, error } = useQuery({
+  const { isFetching, isPending, isError, data, error } = useQuery({
     queryKey: ["heroes"],
     queryFn: getAllSavedHeroes,
   });
@@ -25,7 +25,6 @@ const HeroCollectionPage = () => {
   const offsetData = data?.filter(
     (_hero, index) => index >= start && index < end
   );
-  // const offsetData = data?.filter((hero) => hero.id >= start && hero.id < end);
 
   const handlePrev = () => {
     setPage(page - 1);
@@ -40,7 +39,6 @@ const HeroCollectionPage = () => {
   };
 
   const dataLength = data?.length || 0;
-  // const dataLength = data?.map((hero) => hero.id).length || 74;
 
   return (
     <div>
