@@ -57,6 +57,7 @@ npm install
 
 - Improves styling on the buttons and hero cards.
 - fixed some bugs on the front end.
+- Fixed bug in back end where editing hero stats was creating a new repository entry.
 
 ### 09/10/2024 - Delete and Edit features implemented
 

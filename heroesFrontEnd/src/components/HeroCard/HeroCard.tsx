@@ -32,12 +32,22 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
   });
 
   const statColor = (level: number) => {
-    if (level < 35) {
-      return "firebrick";
-    } else if (level < 70) {
-      return "gold";
-    } else {
+    if(level < 6){
+      return "firebrick"
+    }else if(level < 16){
+      return "red"
+    } else if (level < 32) {
+      return "orangered";
+    }else if(level < 48){
+      return "gold"
+    }else if (level < 64) {
+      return "yellow";
+     } else if(level < 80){
+      return "lime"
+    } else if(level < 95) {
       return "limegreen";
+    } else {
+      return "mediumspringgreen"
     }
   };
 

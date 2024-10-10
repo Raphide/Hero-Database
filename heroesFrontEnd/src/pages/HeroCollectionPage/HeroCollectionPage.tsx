@@ -41,19 +41,32 @@ const HeroCollectionPage = () => {
   const dataLength = data?.length || 0;
 
   return (
-    <div>
+    <div className={styles.page}>
+      <span>
+        <div className={styles.buttonborder}>
       <button onClick={handlePrev} disabled={page === 1}>
         prev
-      </button>
+      </button></div>
       <h2>{page}</h2>
+      <div className={styles.buttonborder}>
       <button onClick={handleNext} disabled={end >= dataLength}>
         next
-      </button>
+      </button></div></span>
      <div className={styles.cards}>
         {offsetData?.map((hero) => (
           <HeroCard key={hero.id} hero={hero} heroType={"SAVED"} />
         ))}
       </div>
+      <span>
+        <div className={styles.buttonborder}>
+      <button onClick={handlePrev} disabled={page === 1}>
+        prev
+      </button></div>
+      <h2>{page}</h2>
+      <div className={styles.buttonborder}>
+      <button onClick={handleNext} disabled={end >= dataLength}>
+        next
+      </button></div></span>
     </div>
   );
 };

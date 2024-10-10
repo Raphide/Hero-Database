@@ -15,6 +15,7 @@ function App() {
   const queryClient = new QueryClient();
 
   return (
+    <div className="border">
     <div className="app">
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
@@ -28,7 +29,7 @@ function App() {
        </Routes>
         </BrowserRouter>
       </QueryClientProvider>
-    </div>
+    </div></div>
   );
 }
 

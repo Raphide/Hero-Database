@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     onSearch(term);
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.searchbar} onSubmit={handleSubmit}>
       <span>
         <input type="text" placeholder="Search" name="search" />
         <div className={styles.buttonborder}>

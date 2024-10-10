@@ -36,9 +36,12 @@ const HeroForm = ({ hero, onSubmit }: HeroFormProps) => {
 
   return (
     <div className={styles.base}>
-      <img src={hero.images.sm}/>
+      <div className={styles.border}>
+      <img src={hero.images.sm}/></div>
       <h1 className={styles.name}>{hero.name}</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form  onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.border}>
+        <div className={styles.statform}>
         <div className={styles.hidden}>
           <label htmlFor="name">Name</label>
           <input
@@ -154,8 +157,9 @@ const HeroForm = ({ hero, onSubmit }: HeroFormProps) => {
             {...register("sm")}
           />
           {errors?.sm && <small>{errors.sm.message}</small>}
-        </div>
-        <button>Submit</button>
+        </div></div></div>
+        <div className={styles.buttonborder}>
+        <button>Submit</button></div>
       </form>
     </div>
   );

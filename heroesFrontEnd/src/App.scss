@@ -1,9 +1,11 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
+
   text-align: center;
-  
+
   button {
+    font-family: monospace;
+    font-weight: bolder;
     height: 3em;
     width: 8em;
     border-radius: 3%;
@@ -33,7 +35,7 @@
       #fffef9 55%,
       #746c61 80%
     );
-    &:hover{
+    &:hover {
       color: limegreen;
     }
     &:active {
@@ -42,18 +44,29 @@
       border-bottom: 1px outset #705a39;
       border-left: 1px outset #978c7a;
       height: 2.8em;
+      margin-top:2px;
     }
   }
-  span{
+  span {
     display: flex;
     flex-direction: row;
   }
 }
 
-.app{
+.border{
+  border: 10px ridge #b9ae9b;
+  margin: 9rem;
+}
+
+.app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.296);
+  padding-bottom: 3rem;
+  border: 5px inset rgb(136, 136, 136);
+  background: rgba(193,193,193,0.87);
+background: radial-gradient(ellipse farthest-corner at bottom left, rgba(0, 0, 0, 0.545) 0%, rgba(28, 28, 28, 0.423) 40%, #ffffff5a 60%, rgba(0, 0, 0, 0.351) 70%);
   
 }

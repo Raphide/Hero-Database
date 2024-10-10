@@ -31,7 +31,7 @@ const HeroPage = () => {
     if(term !== null){
       setHeroes(data?.filter((hero) => hero.name.toLowerCase().includes(term?.toString())))
     }
-    console.log(term?.toString())
+    console.log(searchTerm?.toString())
     console.log(heroes)
   }
 
@@ -52,7 +52,7 @@ const HeroPage = () => {
   const dataLength = heroes?.length || data?.length|| 0;
 
   return (
-    <div>
+    <div className={styles.page}>
       <span>
         <div className={styles.buttonborder}>
       <button onClick={handlePrev} disabled={page === 1}>
@@ -68,6 +68,16 @@ const HeroPage = () => {
         <HeroCard key={hero.id} hero={hero} heroType="SOURCE" />
       ))}
       </div>
+      <span>
+        <div className={styles.buttonborder}>
+      <button onClick={handlePrev} disabled={page === 1}>
+        prev
+      </button></div>
+      <h2>{page}</h2>
+      <div className={styles.buttonborder}>
+      <button onClick={handleNext} disabled={end >= dataLength}>
+        next
+      </button></div></span>
     </div>
   );
 };

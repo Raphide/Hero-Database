@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 import jakarta.validation.Valid;
 import nology.io.heroes.Images.Images;
 import nology.io.heroes.PowerStats.Powerstats;
+import nology.io.heroes.PowerStats.PowerstatsRepository;
 
 @Service
 public class HeroService {
 
     @Autowired
     HeroRepository repo;
+
+    @Autowired
+    PowerstatsRepository powerRepo;
 
     public Hero createHero(@Valid CreateHeroDTO data) {
         Hero newHero = new Hero();
@@ -56,7 +60,8 @@ public class HeroService {
         throw new Exception("Could not find Hero with id " + id);
     }
     Hero foundHero = result.get();
-    Powerstats newStats = new Powerstats();
+    Optional<Powerstats> foundStats = this.powerRepo.findById(foundHero.getPowerstats().getId());
+    Powerstats newStats = foundStats.get();
     newStats.setCombat(data.getCombat());
         newStats.setDurability(data.getDurability());
         newStats.setIntelligence(data.getIntelligence());

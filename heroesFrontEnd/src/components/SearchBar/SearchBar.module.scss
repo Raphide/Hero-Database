@@ -1,8 +1,16 @@
+.searchbar{
+    input{
+        background-color: rgb(28, 36, 28);
+        color: limegreen;
+        font-family: monospace;
+        font-size: 1.5em;
+    }
+}
+
 .buttonborder{
     width: fit-content;
       border-top: 0px;
       border-right: 2px ridge #b9ae9b;
       border-bottom: 4px ridge #b9ae9b;
       border-left: 2px ridge #b9ae9b;
-    
     }

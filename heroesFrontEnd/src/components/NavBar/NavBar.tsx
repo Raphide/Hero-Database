@@ -6,8 +6,8 @@ const NavBar = () => {
   return (
     <div className={styles.bar}>
         <nav>
-            <NavLink to={"/"}>All Heroes</NavLink>
-            <NavLink to={"/collection"}>Collected Heroes</NavLink>
+            <NavLink to={"/"} className={styles.link}>All Heroes</NavLink>
+            <NavLink to={"/collection"} className={styles.link}>Collected Heroes</NavLink>
         </nav>
     </div>
   )
