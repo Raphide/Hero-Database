@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./SearchBar.module.scss";
 
 interface SearchBarProps {
   onSearch: (term: FormDataEntryValue | null) => unknown;
@@ -13,8 +14,12 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Search" name="search" />
-      <button>Search</button>
+      <span>
+        <input type="text" placeholder="Search" name="search" />
+        <div className={styles.buttonborder}>
+          <button>Search</button>
+        </div>
+      </span>
     </form>
   );
 };

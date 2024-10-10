@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import {
   QueryClient,
   QueryClientProvider,
@@ -9,6 +9,7 @@ import HeroPage from "./pages/HeroPage/HeroPage";
 import SaveHeroPage from "./pages/SaveHeroPage/SaveHeroPage";
 import HeroCollectionPage from "./pages/HeroCollectionPage/HeroCollectionPage";
 import UpdateHeroPage from "./pages/UpdateHeroPage/UpdateHeroPage";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <h1>HERiO</h1>
+          <NavBar/>
        <Routes>
         <Route path="/" element={<HeroPage/>} />
         <Route path="/save/:id" element={<SaveHeroPage/>} />

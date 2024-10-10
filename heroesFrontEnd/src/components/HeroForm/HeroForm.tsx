@@ -36,6 +36,7 @@ const HeroForm = ({ hero, onSubmit }: HeroFormProps) => {
 
   return (
     <div className={styles.base}>
+      <img src={hero.images.sm}/>
       <h1 className={styles.name}>{hero.name}</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.hidden}>

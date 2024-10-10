@@ -39,6 +39,7 @@ npm install
 ## Known issues
 
 - Front end still needs work
+  - Styling is still too ugly to be called "charming", but we're getting there!
   - May add modals to bring up hero info
 - Tests not yet implemented
 
@@ -52,7 +53,12 @@ npm install
 
 ## Change logs
 
-### 09/10/2024 - Search feature implemented
+### 10/10/2024 - Front end styling and bug fixes
+
+- Improves styling on the buttons and hero cards.
+- fixed some bugs on the front end.
+
+### 09/10/2024 - Delete and Edit features implemented
 
 - Delete and Edit feature implemented
 - Improved styling on form components and background

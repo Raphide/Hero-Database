@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HeroesApplication<heroes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "nology.io.heroes.HeroesApplication",
+            "projectName": "heroes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

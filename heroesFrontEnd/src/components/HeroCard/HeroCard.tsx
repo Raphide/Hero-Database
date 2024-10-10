@@ -47,27 +47,31 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
         <div className={styles.topsides}>
           {heroType === "SOURCE" ? (
             <Link to={`/save/${hero.id}`}>
-              <button>Save Hero</button>
+              <div className={styles.buttonborder}>
+              <button>Save Hero</button></div>
             </Link>
           ) : (
-            <Link to={`/collection/update/${hero.id}`}><button>Edit</button></Link>
+            <Link to={`/collection/update/${hero.id}`}><div className={styles.buttonborder}><button>Edit</button></div></Link>
           )}
         </div>
-        <h2>{hero.name}</h2>
+        <div className={styles.nameborder}>
+        <h2>{hero.name}</h2></div>
         <div className={styles.topsides}>
           {heroType === "SAVED" && (
-            <button
+            <div className={styles.buttonborder}><button
               onClick={() => {
                 mutation.mutate(hero.id);
               }}
             >
               Delete
-            </button>
+            </button></div>
           )}
         </div>
       </div>
       <span className={styles.contents}>
-        <img src={hero.images.sm} />
+        <div className={styles.border}>
+        <img className={styles.portrait} src={hero.images.sm} /></div>
+        <div className={styles.border}><div className={styles.screen}>
         <div className={styles.stats}>
           <p>Combat: {hero.powerstats.combat}</p>
           <p>Durability: {hero.powerstats.durability}</p>
@@ -135,8 +139,8 @@ const HeroCard = ({ hero, heroType }: HeroCardProps) => {
                 height: "100%",
                 width: `${hero.powerstats.strength}%`,
               }}
-            ></div>
-          </div>
+            ></div></div>
+          </div></div>
         </div>
       </span>
     </div>

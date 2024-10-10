@@ -16,7 +16,6 @@ const HeroPage = () => {
   const { isFetching, isPending, isError, data, error } = useQuery({
     queryKey: ["heroes"],
     queryFn: getAllSourceHeroes,
-    
   });
   
   if (isError) {
@@ -37,7 +36,6 @@ const HeroPage = () => {
   }
 
   const offsetData = heroes?.filter((_hero, index) => index >= start && index < end) || data?.filter((_hero, index) => index >= start && index < end);
-  // const offsetData = data?.filter((hero) => hero.id >= start && hero.id < end);
 
   const handlePrev = () => {
     setPage(page - 1);
@@ -51,19 +49,20 @@ const HeroPage = () => {
     setEnd(end + 10);
   };
 
-  const dataLength = heroes?.length || 0;
-  // const dataLength = data?.map((hero) => hero.id).length || 74;
+  const dataLength = heroes?.length || data?.length|| 0;
 
   return (
     <div>
       <span>
+        <div className={styles.buttonborder}>
       <button onClick={handlePrev} disabled={page === 1}>
         prev
-      </button>
+      </button></div>
       <h2>{page}</h2>
+      <div className={styles.buttonborder}>
       <button onClick={handleNext} disabled={end >= dataLength}>
         next
-      </button></span><SearchBar onSearch={handleSearch} />
+      </button></div></span><SearchBar onSearch={handleSearch} />
       <div className={styles.cards}>
       {data && offsetData?.map((hero) => (
         <HeroCard key={hero.id} hero={hero} heroType="SOURCE" />
