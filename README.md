@@ -53,6 +53,10 @@ npm install
 
 ## Change logs
 
+### 11/10/2024 - Back end testing
+
+- Started to implement end to end testing on the back end.
+
 ### 10/10/2024 - Front end styling and bug fixes
 
 - Improves styling on the buttons and hero cards.

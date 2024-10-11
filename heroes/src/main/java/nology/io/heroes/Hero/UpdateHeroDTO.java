@@ -1,25 +1,39 @@
 package nology.io.heroes.Hero;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 public class UpdateHeroDTO {
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int combat;
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int durability;
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int intelligence;
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int power;
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int speed;
 
     @NotNull
+    @Min(1)
+    @Max(100)
     private int strength;
 
     public int getCombat() {

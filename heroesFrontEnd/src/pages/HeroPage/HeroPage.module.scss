@@ -19,4 +19,7 @@
   border-bottom: 4px ridge #b9ae9b;
   border-left: 2px ridge #b9ae9b;
   margin: 0 1em;
+  &:active{
+    border-top: 2px ridge #b9ae9b;
+  }
 }

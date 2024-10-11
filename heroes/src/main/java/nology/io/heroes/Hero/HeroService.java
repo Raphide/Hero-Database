@@ -10,6 +10,8 @@ import jakarta.validation.Valid;
 import nology.io.heroes.Images.Images;
 import nology.io.heroes.PowerStats.Powerstats;
 import nology.io.heroes.PowerStats.PowerstatsRepository;
+import nology.io.heroes.common.ValidationErrors;
+import nology.io.heroes.common.exceptions.ServiceValidationException;
 
 @Service
 public class HeroService {
@@ -20,10 +22,32 @@ public class HeroService {
     @Autowired
     PowerstatsRepository powerRepo;
 
-    public Hero createHero(@Valid CreateHeroDTO data) {
+    public Hero createHero(@Valid CreateHeroDTO data) throws Exception {
+        ValidationErrors errors = new ValidationErrors();
         Hero newHero = new Hero();
         Powerstats newStats = new Powerstats();
         Images newImg = new Images();
+        // if(data.getCombat() < 1 || data.getCombat() > 100 ){
+        //     errors.addError("combat", "Combat cannot be less than 1 or more than 100");
+        // }
+        // if(data.getDurability() < 1 || data.getDurability() > 100 ){
+        //     errors.addError("durability", "Durability cannot be less than 1 or more than 100");
+        // }
+        // if(data.getIntelligence() < 1 || data.getIntelligence() > 100 ){
+        //     errors.addError("intelligence", "Intelligence cannot be less than 1 or more than 100");
+        // }
+        // if(data.getPower() < 1 || data.getPower() > 100 ){
+        //     errors.addError("power", "Power cannot be less than 1 or more than 100");
+        // }
+        // if(data.getSpeed() < 1 || data.getSpeed() > 100 ){
+        //     errors.addError("speed", "Speed cannot be less than 1 or more than 100");
+        // }
+        // if(data.getStrength() < 1 || data.getStrength() > 100 ){
+        //     errors.addError("strength", "Strength cannot be less than 1 or more than 100");
+        // }
+        // if(errors.hasErrors()){
+        //     throw new ServiceValidationException(errors);
+        // }
         newHero.setName(data.getName());
         newStats.setCombat(data.getCombat());
         newStats.setDurability(data.getDurability());
@@ -34,6 +58,7 @@ public class HeroService {
         newHero.setPowerstats(newStats);
         newImg.setSm(data.getSm());
         newHero.setImages(newImg);
+        
         return this.repo.save(newHero);
     }
 

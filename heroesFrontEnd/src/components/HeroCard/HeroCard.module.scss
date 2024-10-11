@@ -89,6 +89,12 @@ width: fit-content;
   border-right: 2px ridge #b9ae9b;
   border-bottom: 4px ridge #b9ae9b;
   border-left: 2px ridge #b9ae9b;
+  &:active{
+    border-top: 2px ridge #b9ae9b;
+  border-right: 2px ridge #b9ae9b;
+  border-bottom: 4px ridge #b9ae9b;
+  border-left: 2px ridge #b9ae9b;
+  }
 
 }
 
