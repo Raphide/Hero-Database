@@ -44,14 +44,14 @@ public class CreateHeroDTO {
     @Max(100)
     private int strength;
 
-    @Nullable
-    private String xs;
+    // @Nullable
+    // private String xs;
     @NotBlank
     private String sm;
-    @Nullable
-    private String md;
-@Nullable
-    private String lg;
+    // @Nullable
+    // private String md;
+// @Nullable
+//     private String lg;
 
     public String getName() {
         return name;
@@ -109,13 +109,13 @@ public class CreateHeroDTO {
         this.strength = strength;
     }
 
-    public String getXs() {
-        return xs;
-    }
+    // public String getXs() {
+    //     return xs;
+    // }
 
-    public void setXs(String xs) {
-        this.xs = xs;
-    }
+    // public void setXs(String xs) {
+    //     this.xs = xs;
+    // }
 
     public String getSm() {
         return sm;
@@ -125,24 +125,20 @@ public class CreateHeroDTO {
         this.sm = sm;
     }
 
-    public String getMd() {
-        return md;
-    }
+    // public String getMd() {
+    //     return md;
+    // }
 
-    public void setMd(String md) {
-        this.md = md;
-    }
+    // public void setMd(String md) {
+    //     this.md = md;
+    // }
 
-    public String getLg() {
-        return lg;
-    }
+    // public String getLg() {
+    //     return lg;
+    // }
 
-    public void setLg(String lg) {
-        this.lg = lg;
-    }
-
-  
-
-    
+    // public void setLg(String lg) {
+    //     this.lg = lg;
+    // }
 
 }

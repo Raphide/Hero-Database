@@ -23,7 +23,7 @@ public class HeroService {
     PowerstatsRepository powerRepo;
 
     public Hero createHero(@Valid CreateHeroDTO data) throws Exception {
-        ValidationErrors errors = new ValidationErrors();
+        // ValidationErrors errors = new ValidationErrors();
         Hero newHero = new Hero();
         Powerstats newStats = new Powerstats();
         Images newImg = new Images();
