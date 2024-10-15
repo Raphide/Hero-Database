@@ -10,9 +10,13 @@ import SaveHeroPage from "./pages/SaveHeroPage/SaveHeroPage";
 import HeroCollectionPage from "./pages/HeroCollectionPage/HeroCollectionPage";
 import UpdateHeroPage from "./pages/UpdateHeroPage/UpdateHeroPage";
 import NavBar from "./components/NavBar/NavBar";
+import BattlePage from "./pages/BattlePage/BattlePage";
+import { getSavedHeroById } from "./services/saveHeroServices";
 
 function App() {
   const queryClient = new QueryClient();
+
+
 
   return (
     <div className="border">
@@ -26,6 +30,7 @@ function App() {
         <Route path="/save/:id" element={<SaveHeroPage/>} />
         <Route path="/collection" element={<HeroCollectionPage/>}/>
         <Route path="/collection/update/:id" element={<UpdateHeroPage/>}/>
+        <Route path="/collection/battle" element={<BattlePage/>}/>
        </Routes>
         </BrowserRouter>
       </QueryClientProvider>

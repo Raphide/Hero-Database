@@ -53,6 +53,10 @@ npm install
 
 ## Change logs
 
+### 14/10/2024 - Battle System started
+
+- Started to implement the battle system.
+
 ### 11/10/2024 - Back end testing
 
 - Started to implement end to end testing on the back end.

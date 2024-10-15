@@ -8,6 +8,7 @@ const NavBar = () => {
         <nav>
             <NavLink to={"/"} className={styles.link}>All Heroes</NavLink>
             <NavLink to={"/collection"} className={styles.link}>Collected Heroes</NavLink>
+            <NavLink to={"/collection/battle"} className={styles.link}>Battle</NavLink>
         </nav>
     </div>
   )
