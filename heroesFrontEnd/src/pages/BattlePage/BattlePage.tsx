@@ -8,13 +8,14 @@ import {
 import HeroSelectForm from "../../components/HeroSelectForm/HeroSelectForm";
 import BattleCard from "../../components/BattleCard/BattleCard";
 import { SelectFormData } from "../../components/HeroSelectForm/schema";
+import Battler from "../../components/Battler/Battler";
 
 
 
 const BattlePage = () => {
     const [hero1, setHero1] =useState<number>(0);
     const [hero2, setHero2] =useState<number>(0);
-    const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
     
 
     const selectHero1 = (id: { id: number; }) => {
@@ -24,11 +25,11 @@ const BattlePage = () => {
         setHero2(id.id)
     }
 
-    // useEffect(()=> {
-    //   if(hero1 !==0 && hero2 !==0){
-    //     setIsOpen(true)
-    //   }  
-    // },[hero1, hero2])
+    useEffect(()=> {
+      if(hero1 !==0 && hero2 !==0){
+        setIsOpen(true)
+      }  
+    },[hero1, hero2])
 
 const handleClick = () => {
 console.log(hero1);
@@ -51,6 +52,7 @@ console.log(hero2);
       <button onClick={handleClick}>Debug</button>
       {isOpen && <BattleCard heroId={hero1}/>}
       {isOpen && <BattleCard heroId={hero2}/>}
+      {isOpen && <Battler heroId1={hero1} heroId2={hero2} />}
     </div>
   );
 };

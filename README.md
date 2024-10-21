@@ -53,6 +53,10 @@ npm install
 
 ## Change logs
 
+### 21/10/2024 - Battle System improved
+
+- further work done on the battle system.
+
 ### 14/10/2024 - Battle System started
 
 - Started to implement the battle system.
