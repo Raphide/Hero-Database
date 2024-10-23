@@ -6,9 +6,10 @@ import HeroCard from '../HeroCard/HeroCard';
 
 interface BattleCardProps {
     heroId: number;
+    player: number;
   }
 
-const BattleCard = ({heroId}: BattleCardProps) => {
+const BattleCard = ({heroId, player}: BattleCardProps) => {
     const [id, setId] = useState<number>(heroId);
     const [hero, setHero] = useState<SavedHeroResponse| null>(null)
     useEffect(() => {
@@ -41,7 +42,7 @@ const BattleCard = ({heroId}: BattleCardProps) => {
   return (
     <div>
       {/* <button onClick={handleClick}>Click Me</button> */}
-      <h1>Selected:</h1>
+      <h1>{player === 1 ? "Player 1:" : "Player 2:"}</h1>
    {/* {hero && <h1>{hero.name}</h1>} */}
       <h1>{hero?.name}</h1> 
       {hero && <HeroCard key={hero.id} hero={hero} heroType={'SAVED'} />}

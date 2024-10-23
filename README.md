@@ -53,6 +53,14 @@ npm install
 
 ## Change logs
 
+### 23/10/2024 - More Battle System
+
+- further work done on the battle system.
+  - Hp bars are implemented
+  - Text to reflect who has done how much damage
+  - Text to say who won
+  - Removed broken auto-battler (it's for the best)
+
 ### 21/10/2024 - Battle System improved
 
 - further work done on the battle system.

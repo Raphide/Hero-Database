@@ -1,0 +1,14 @@
+.statbar {
+    height: 19px;
+    width: 200px;
+    background-color: black;
+    margin: 1em 0;
+    // background: linear-gradient(179deg,rgba(255,0,0,0) 0%, rgba(17, 3, 24, 0.41) 80%);
+    .bar {
+      background: linear-gradient(
+        179deg,
+        rgba(255, 0, 0, 0) 0%,
+        rgba(130, 12, 184, 0.41) 80%
+      );
+    }
+  }

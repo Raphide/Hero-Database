@@ -15,7 +15,8 @@ import Battler from "../../components/Battler/Battler";
 const BattlePage = () => {
     const [hero1, setHero1] =useState<number>(0);
     const [hero2, setHero2] =useState<number>(0);
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen1, setIsOpen1] = useState<boolean>(false);
+    const [isOpen2, setIsOpen2] = useState<boolean>(false);
     
 
     const selectHero1 = (id: { id: number; }) => {
@@ -26,9 +27,12 @@ const BattlePage = () => {
     }
 
     useEffect(()=> {
-      if(hero1 !==0 && hero2 !==0){
-        setIsOpen(true)
+      if(hero1 !==0){
+        setIsOpen1(true)
       }  
+      if(hero2 !==0){
+        setIsOpen2(true)
+      }
     },[hero1, hero2])
 
 const handleClick = () => {
@@ -50,9 +54,9 @@ console.log(hero2);
         </div>
       </span>
       <button onClick={handleClick}>Debug</button>
-      {isOpen && <BattleCard heroId={hero1}/>}
-      {isOpen && <BattleCard heroId={hero2}/>}
-      {isOpen && <Battler heroId1={hero1} heroId2={hero2} />}
+      {isOpen1 && <BattleCard heroId={hero1} player={1}/>}
+      {isOpen2 && <BattleCard heroId={hero2} player={2}/>}
+      {isOpen1 && isOpen2 && <Battler heroId1={hero1} heroId2={hero2} />}
     </div>
   );
 };
