@@ -60,6 +60,7 @@ npm install
   - Text to reflect who has done how much damage
   - Text to say who won
   - Removed broken auto-battler (it's for the best)
+  - Animated HP bars
 
 ### 21/10/2024 - Battle System improved
 

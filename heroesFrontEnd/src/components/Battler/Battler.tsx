@@ -24,7 +24,6 @@ const Battler = ({ heroId1, heroId2 }: BattlerProps) => {
   const [order1, setOrder1] = useState<boolean>(false);
   const [order2, setOrder2] = useState<boolean>(false);
   const [start, setStart] = useState<boolean>(false);
-  const [auto, setAuto] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
 
   const [combat1, setCombat1] = useState<number>(0);
@@ -57,38 +56,39 @@ const Battler = ({ heroId1, heroId2 }: BattlerProps) => {
   }, [id2, heroId2]);
 
   useEffect(() => {
+    setMessage("")
     if (hero1 && hero2) {
       setHp1(
-        Math.trunc(
+        Math.floor(
           hero1.powerstats.durability *
             ((hero1.powerstats.intelligence + hero1.powerstats.speed) * 0.6)
         )
       );
       setHp2(
-        Math.trunc(
+        Math.floor(
           hero2.powerstats.durability *
             ((hero2.powerstats.intelligence + hero2.powerstats.speed) * 0.6)
         )
       );
       setBaseHp1(
-        Math.trunc(
+        Math.floor(
           hero1.powerstats.durability *
             ((hero1.powerstats.intelligence + hero1.powerstats.speed) * 0.6)
         )
       );
       setBaseHp2(
-        Math.trunc(
+        Math.floor(
           hero2.powerstats.durability *
             ((hero2.powerstats.intelligence + hero2.powerstats.speed) * 0.6)
         )
       );
       setAttack1(
-        Math.trunc(hero1.powerstats.combat *
-          ((hero1.powerstats.strength + hero1.powerstats.power) * 0.2)
+        Math.floor((hero1.powerstats.combat *
+          ((hero1.powerstats.strength + hero1.powerstats.power) * 0.2) * 0.5)
       ));
       setAttack2(
-        Math.trunc(hero2.powerstats.combat *
-          ((hero2.powerstats.strength + hero2.powerstats.power) * 0.2)
+        Math.floor((hero2.powerstats.combat *
+          ((hero2.powerstats.strength + hero2.powerstats.power) * 0.2) * 0.5)
       ));
       if (hero1.powerstats.speed >= hero2.powerstats.speed) {
         setOrder1(true);
@@ -101,42 +101,24 @@ const Battler = ({ heroId1, heroId2 }: BattlerProps) => {
   }, [start === true]);
 
   const handleAttack1 = () => {
-    setHp2(Math.trunc(hp2 - attack1 * 0.5));
+    setHp2(Math.floor(hp2 - attack1));
     setOrder1(!order1);
     setOrder2(!order2);
     setMessage(`${hero1?.name} attacked ${hero2?.name} for ${attack1} damage!`);
   };
 
   const handleAttack2 = () => {
-    setHp1(Math.trunc(hp1 - attack2 * 0.5));
+    setHp1(Math.floor(hp1 - attack2));
     setOrder1(!order1);
     setOrder2(!order2);
     setMessage(`${hero2?.name} attacked ${hero1?.name} for ${attack2} damage!`);
   };
 
-//   useEffect(() => {
-//     if (hero1 && hero2) {
-//       do {
-//         if (hero1.powerstats.speed >= hero2.powerstats.speed) {
-//           handleAttack1;
-//           setTimeout(() => {
-//             handleAttack2;
-//           }, 200);
-//         } else {
-//           handleAttack2;
-//           setTimeout(() => {
-//             handleAttack1;
-//           }, 200);
-//         }
-//       } while (hp1 > 0 && hp2 > 0);
-//     }
-//   }, [auto]);
-
 const battleMessage = () => {
     if(hp1 <= 0){
         return `${hero2?.name} wins!`
     } else if (hp2 <= 0){
-        return `${hero2?.name} wins!`
+        return `${hero1?.name} wins!`
     } else {
         return message;
     }
@@ -185,7 +167,7 @@ const battleMessage = () => {
               }}
             ></div></div>
               </div>
-              <button
+              <button data-testid="attack1"
                 onClick={handleAttack1}
                 disabled={order1 === false || hp1 <= 0 || hp2 <= 0}
               >
@@ -207,10 +189,10 @@ const battleMessage = () => {
                 backgroundColor: statColor(hp2/baseHp2 * 100),
                 height: "100%",
                 width: `${hp2 <= 0 ? 0 : hp2/baseHp2 * 100 }%`,
-              }}
+               }}
             ></div></div>
               </div>
-              <button
+              <button data-testid="attack2"
                 onClick={handleAttack2}
                 disabled={order2 === false || hp1 <= 0 || hp2 <= 0}
               >
@@ -219,9 +201,8 @@ const battleMessage = () => {
             </div>
           </span>
           <div>
-            <h1>{battleMessage()}</h1>
+            <h1 data-testid="battleMessage">{battleMessage()}</h1>
           </div>
-          {/* <button onClick={() => setAuto(true)}>AUTO</button> */}
         </div>
       )}
     </div>

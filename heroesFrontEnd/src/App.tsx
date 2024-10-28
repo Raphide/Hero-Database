@@ -11,18 +11,15 @@ import HeroCollectionPage from "./pages/HeroCollectionPage/HeroCollectionPage";
 import UpdateHeroPage from "./pages/UpdateHeroPage/UpdateHeroPage";
 import NavBar from "./components/NavBar/NavBar";
 import BattlePage from "./pages/BattlePage/BattlePage";
-import { getSavedHeroById } from "./services/saveHeroServices";
 
 function App() {
   const queryClient = new QueryClient();
 
-
-
   return (
     <div className="border">
     <div className="app">
-      <QueryClientProvider client={queryClient}>
         <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
           <h1>HERiO</h1>
           <NavBar/>
        <Routes>
@@ -32,8 +29,8 @@ function App() {
         <Route path="/collection/update/:id" element={<UpdateHeroPage/>}/>
         <Route path="/collection/battle" element={<BattlePage/>}/>
        </Routes>
-        </BrowserRouter>
       </QueryClientProvider>
+        </BrowserRouter>
     </div></div>
   );
 }

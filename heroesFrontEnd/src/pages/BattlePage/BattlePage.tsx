@@ -27,6 +27,8 @@ const BattlePage = () => {
     }
 
     useEffect(()=> {
+      setIsOpen1(false)
+      setIsOpen2(false)
       if(hero1 !==0){
         setIsOpen1(true)
       }  
@@ -42,8 +44,8 @@ console.log(hero2);
 
 
   return (
-    <div>
-      <span>
+    <div className={styles.base}>
+      <span className={styles.select}>
         <div>
           <h1>Player 1</h1>
           <HeroSelectForm onSelect={selectHero1} />
@@ -53,7 +55,7 @@ console.log(hero2);
           <HeroSelectForm onSelect={selectHero2}/>
         </div>
       </span>
-      <button onClick={handleClick}>Debug</button>
+      {/* <button onClick={handleClick}>Debug</button> */}
       {isOpen1 && <BattleCard heroId={hero1} player={1}/>}
       {isOpen2 && <BattleCard heroId={hero2} player={2}/>}
       {isOpen1 && isOpen2 && <Battler heroId1={hero1} heroId2={hero2} />}

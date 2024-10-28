@@ -55,7 +55,7 @@ const HeroPage = () => {
     <div className={styles.page}>
       <span>
         <div className={styles.buttonborder}>
-      <button onClick={handlePrev} disabled={page === 1}>
+      <button onClick={handlePrev} disabled={page === 1} data-testid="prev">
         prev
       </button></div>
       <h2>{page}</h2>

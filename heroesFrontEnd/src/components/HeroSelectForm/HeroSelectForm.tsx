@@ -12,7 +12,7 @@ interface HeroSelectProps {
 const HeroSelectForm = ({ onSelect }: HeroSelectProps) => {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
     handleSubmit,
   } = useForm<SelectFormData>({ resolver: zodResolver(schema) });
 
@@ -42,7 +42,7 @@ const HeroSelectForm = ({ onSelect }: HeroSelectProps) => {
           ))}
         </select>
         {errors?.id && <small>{errors.id.message}</small>}
-        <button>Select</button>
+        <button>{isSubmitSuccessful ? "Ready" : "Select"}</button>
       </form>
     </div>
   );
